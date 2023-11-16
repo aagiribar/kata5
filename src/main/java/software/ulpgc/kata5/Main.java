@@ -10,8 +10,10 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         commands.put("welcome", new WelcomeCommand());
+        commands.put("add", new AddCommand());
         Spark.port(8080);
         Spark.get("/welcome", (req, res) -> new CommandExecutor(req, res).execute("welcome"));
+        Spark.get("/add/:a/:b", (req, res) -> new CommandExecutor(req, res).execute("add"));
     }
 
     static Map<String, Command> commands = new HashMap<>();
