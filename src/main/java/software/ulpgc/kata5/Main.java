@@ -11,9 +11,13 @@ public class Main {
     public static void main(String[] args) {
         commands.put("welcome", new WelcomeCommand());
         commands.put("add", new AddCommand());
+        commands.put("multiply", new MultiplyCommand());
+        commands.put("divide", new DivideCommand());
         Spark.port(8080);
         Spark.get("/welcome", (req, res) -> new CommandExecutor(req, res).execute("welcome"));
         Spark.get("/add/:a/:b", (req, res) -> new CommandExecutor(req, res).execute("add"));
+        Spark.get("/multiply/:a/:b", (req, res) -> new CommandExecutor(req, res).execute("multiply"));
+        Spark.get("/divide/:a/:b", (req, res) -> new CommandExecutor(req, res).execute("divide"));
     }
 
     static Map<String, Command> commands = new HashMap<>();

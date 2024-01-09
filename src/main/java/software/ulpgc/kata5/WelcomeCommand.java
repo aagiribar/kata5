@@ -11,7 +11,7 @@ public class WelcomeCommand implements Command{
 
             @Override
             public String result() {
-                return "Welcome to my web server. This is a list of available commands: add/:a/:b";
+                return "Welcome to my web server. This is a list of available commands: add/:a/:b; /multiply/:a/:b; /divide/:a/:b";
             }
         };
     }
